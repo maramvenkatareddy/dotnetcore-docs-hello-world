@@ -1,0 +1,17 @@
+pipeline {
+    agent any
+    
+    stages {
+        stage ('sourcecode') {
+            steps {
+                git url: 'https://github.com/maramvenkatareddy/dotnetcore-docs-hello-world.git',
+                branch: 'master'
+            }
+        }
+        stage ('build the code') {
+            steps {
+                    sh 'dotnet build dotnetcoresample.csproj'
+            }
+        }
+    }
+}
